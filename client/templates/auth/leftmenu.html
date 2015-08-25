@@ -1,0 +1,32 @@
+<template name="leftmenu">
+    <a href="#menu" id="menuLink" class="menu-link">
+        <span></span>
+    </a>
+    <div id="menu">
+        <div class="pure-menu pure-menu-open">
+            <a class="pure-menu-heading" href="#">Edubuddy</a>
+            <ul>
+                <li>
+                    <a href="/userhome" class="leftLink selectedLink">Home</a>
+                </li>
+                <li>
+                    <a href="/groups" class="leftLink">Groups</a>
+                </li>
+                <li>
+                    <a href="/utilities" class="leftLink">Utilities</a>
+                </li>
+                <li>
+                    <a href="/tutorials" class="leftLink">Tutorial</a>
+                </li>
+                <li>
+                    <a id="signout" href="javascript:void(0);" class="leftLink">Sign Out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            leftMenuRdy();
+        });
+    </script>
+</template>

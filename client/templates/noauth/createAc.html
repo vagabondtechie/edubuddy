@@ -1,0 +1,23 @@
+<template name="createAc">
+    <div class="homeDivCmn formBox"> <!-- style="width:280px;" -->
+        <div>
+            <form class="pure-form pure-form-aligned margin1em">
+                <h3 class="content-subhead">Registration</h3>
+                <hr />
+                <fieldset class="pure-group">
+                    <input id="username" type="email" placeholder="Email Address" class="full-width"
+                        autocomplete="false" required="true" />
+                </fieldset>
+                <fieldset class="pure-group">
+                    <input id="loginPwd" type="password" placeholder="Password" class="full-width"
+                        autocomplete="false" required="true" />
+                </fieldset>
+                <fieldset class="pure-group">
+                    <button id="signup" class="pure-button pure-button-primary">Sign Me Up!</button>
+                </fieldset>
+                <span id="msg" class="error"></span>
+            </form>
+        </div>
+    </div>
+    <div class="mainDiv"></div>
+</template>

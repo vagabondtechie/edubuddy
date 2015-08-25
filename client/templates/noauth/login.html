@@ -1,0 +1,23 @@
+<template name="login">
+    <div class="homeDivCmn formBox">
+        <div>
+            <form class="pure-form pure-form-aligned margin1em">
+                <h3 class="content-subhead">Login</h3>
+                <hr />
+                <fieldset class="pure-group">
+                    <input id="email" type="email" placeholder="Email Address" class="full-width"
+                        autocomplete="false" required="true" />
+                </fieldset>
+                <fieldset class="pure-group">
+                    <input id="password" type="password" placeholder="Password" class="full-width"
+                        autocomplete="false" required="true" />
+                </fieldset>
+                <fieldset class="pure-group">
+                    <button id="login" class="pure-button pure-button-primary">Log Me In!</button>
+                </fieldset>
+                <span id="msg" class="error"></span>
+            </form>
+        </div>
+    </div>
+    <div class="mainDiv"></div>
+</template>

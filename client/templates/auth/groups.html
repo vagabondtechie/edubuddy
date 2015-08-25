@@ -1,0 +1,111 @@
+<template name="groups">
+    <div class="header">
+        <h1>My Groups</h1>
+        <h2>The gangs I hang out with...</h2>
+    </div>
+	<div class="content">
+        {{#each myGrps}}
+            <h2 class="content-subhead"><a href="/groups/{{_id}}">{{grpName}}</a></h2>
+            <p>
+                {{grpDesc}}
+            </p>
+        {{/each}}
+        <br />
+        <a class="pure-button button-secondary" href="/newGroup">Create Group</a>
+        <a class="pure-button button-warning" href="/searchGrps">Search Groups</a>
+        <br />
+    </div>     
+</template>
+<template name="thisGroup">
+    <div class="header">
+        <h1>{{ this.grpName }}</h1>
+        <h2>{{ this.grpDesc }}</h2>
+    </div>
+    <div class="content">
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <h2 class="content-subhead">Group Admin</h2>
+                <p>
+                    {{this.owner}}
+                </p>
+                <h2 class="content-subhead">Total Members</h2>
+                <p>
+                    {{this.members.length}}
+                </p>
+                <a class="pure-button button-warning" href="/groups">Go Back</a>
+                <a class="pure-button button-secondary" href="/topics" id="newTopic">View Topics</a>
+            </div>
+            <div class="pure-u-1 pure-u-md-1-2">
+                <h2 class="content-subhead">Members</h2>
+                <p>
+                    {{#each this.members}}
+                        {{this}}<br />
+                    {{/each}}
+                </p>
+            </div>
+        </div>
+    </div>    
+</template>
+<template name="newGroup">
+    <div class="header">
+        <h1>New Group</h1>
+        <h2>Forging new bonds...</h2>
+    </div>
+    <div class="content">
+        <form class="pure-form pure-form-aligned">
+            <h2 class="content-subhead">Group Name</h2>
+            <input id="grpName" class="pure-input-1" type="text"
+                placeholder="Group Name" maxlength="100" required="true" autocomplete="false" /><br>
+            <h2 class="content-subhead">Group Description</h2>
+            <textarea id="grpDesc" rows="5" class="pure-input-1" maxlength="300"
+                placeholder="What words describe your group best?" required="true" autocomplete="false"></textarea>
+            <br /><br />
+            <a class="pure-button button-warning" href="/groups">Go Back</a>
+            <button class="pure-button button-secondary" id="createGrp" type="submit">Create</button><br />
+            <p class="error" id="msg"></p>
+        </form>
+    </div>     
+</template>
+<template name="searchGrps">
+    <div class="header">
+        <h1>Search Groups</h1>
+        <h2>Expand your boundaries...</h2>
+    </div>
+    <div class="content">
+        <form class="pure-form pure-form-aligned">
+            <h2 class="content-subhead">Group Name</h2>
+            <p>
+                <input id="grpName" class="pure-input-1" type="text"
+                    placeholder="Enter full or partial group name" maxlength="100" required="true" autocomplete="false" />
+            </p>
+
+            <a class="pure-button button-warning" href="/groups">Go Back</a>
+            <button class="pure-button button-secondary" id="searchGrp" type="submit">Search</button><br />
+            <p class="error" id="msg"></p>
+        </form>
+        {{#if groupsList}}
+            <h2 class="content-subhead">Results</h2>
+        {{/if}}
+        {{#each groupsList}}
+            <div class="pure-g">
+                <div class="pure-u-1 pure-u-md-4-5">
+                    <strong>{{#if isMember}}
+                        <a href="/groups/{{_id}}">{{grpName}}</a>
+                    {{else}}
+                        {{grpName}}
+                    {{/if}}
+                    ({{members.length}} members)</strong>
+                    <p>{{grpDesc}}</p>
+                </div>
+                <div class="pure-u-1 pure-u-md-1-5">
+                    {{#if isMember}}
+                        <button class="pure-button button-purple goldenClr bold full-width">Member</button>
+                    {{else}}
+                        <button class="pure-button button-success darkGreenClr bold jngrp full-width">+ Join Group</button>
+                    {{/if}}
+                </div>
+                <hr />
+            </div>
+        {{/each}}
+    </div>     
+</template>

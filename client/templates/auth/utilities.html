@@ -1,0 +1,46 @@
+<template name="utilities">
+    <div class="header">
+        <h1>Utilities</h1>
+        <h2>A skilled person swears by his tools...</h2>
+    </div>
+	<div class="content">
+		<br />
+		<div class="pure-g">
+			<div class="pure-u-1 pure-u-md-5-12">
+				<h3 class="content-subhead">Pronunciation Checker</h3>
+				<form class="pure-form">
+					<input id="text2speech" class="full-width" />
+					<audio controls id="speakloud" style="display:none;">
+						<source type="audio/mpeg" id="mp3voice"
+							src="https://translate.google.co.in/translate_tts?ie=UTF-8&q=How%20are%20you&tl=en">
+						
+						Your browser does not support the audio element.
+					</audio>
+					<br /><br />
+					<input type="button" class="pure-button button-success" value="Bol Ke Dikha" id="speakBtn" />
+				</form>
+			</div>
+			<div class="pure-u-1 pure-u-md-1-6"></div>
+			<div class="pure-u-1 pure-u-md-5-12">
+				<h3 class="content-subhead">New To Do / Deadline</h3>
+				<form class="pure-form">
+					<input id="todo" class="full-width" maxlength="100"
+						placeholder="Add a new to-do / deadline" />
+					<p class="error" id="msg"></p>
+				</form>
+				<p>
+					<h3 class="content-subhead">Gotta Work on these.</h3>
+					<ul>
+					{{#if myTasks.count}}
+						{{#each myTasks}}
+							<li>{{task}}</li>
+						{{/each}}
+					{{else}}
+						<li>None as of now.</li>
+					{{/if}}
+					</ul>
+				</p>
+			</div>
+		</div>
+	</div>
+</template>

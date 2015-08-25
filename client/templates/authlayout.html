@@ -1,0 +1,27 @@
+<template name="authLayout">
+    <div id="layout">
+    	{{> leftmenu}}
+	    <div id="main">
+	        {{> yield}}
+	    </div>
+	</div>
+	<div class="chatContainer">
+		<div id="activeChats"></div>
+		<button href="#" class="pure-button button-secondary full-width" onclick="return showHide('olUsersList');">CHAT</button>
+		<div id="olUsersList" style="display: none;">
+			{{#each onlineUsers}}
+				<div class="userList">
+					{{username}}
+					<span style="float:right">
+						<a onclick="return startChat('{{peerId}}');"
+							href="#" data-userid="{{userid}}" data-peerid="{{peerId}}">Chat</a>
+					</span>
+				</div>
+			{{/each}}
+		</div>
+		<audio controls id="messagetone" style="display:none;">
+	        <source src="/notification.mp3" type="audio/mpeg">
+	        Your browser does not support the audio element.
+	    </audio>
+	</div>
+</template>
